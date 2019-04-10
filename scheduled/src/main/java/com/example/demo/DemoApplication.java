@@ -15,7 +15,7 @@ import java.util.Date;
 @SpringBootApplication
 public class DemoApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
@@ -23,13 +23,13 @@ public class DemoApplication {
 
     @Scheduled(fixedRate = 1000L)
     void someJob() throws InterruptedException {
-        logger.info("somejob Now is " + new Date());
+        LOGGER.info("somejob Now is " + new Date());
         Thread.sleep(1000L);
     }
 
     @Scheduled(fixedRate = 1000L)
     void someJob2() throws InterruptedException {
-        logger.info("somejob2 Now is " + new Date());
+        LOGGER.info("somejob2 Now is " + new Date());
 
 
     }
@@ -38,6 +38,5 @@ public class DemoApplication {
 @Configuration
 @EnableScheduling
 @ConditionalOnProperty(name = "scheduling.enable", matchIfMissing = true)
-class
-SchedulingConfiguration {
+class SchedulingConfiguration {
 }
